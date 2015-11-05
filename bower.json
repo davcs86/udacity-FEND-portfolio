@@ -1,0 +1,21 @@
+{
+  "name": "udacity-frontend-nanodegree-proj1",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.3",
+    "polymer": "Polymer/polymer#^1.2.0",
+    "jquery": "jQuery#~2.1.4"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+  }
+}

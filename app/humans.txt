@@ -1,0 +1,21 @@
+/* TEAM */
+
+Your title: Project #1 for Udacity's front-end web developer nanodegree program by davcs86 (David Castillo).
+
+Site: davcs86@gmail.com
+
+Location: Villahermosa, Mexico.
+
+/* THANKS */
+
+Name: Web app generator for Yeoman (https://github.com/yeoman/generator-webapp/)
+
+/* SITE */
+
+Last update: 2015/11/04
+
+Standards: HTML5, CSS3
+
+Components: Modernizr, jQuery, Polymer, Bootstrap.
+
+Software: Atom
