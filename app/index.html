@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Project #1 for Udacity's front-end web developer nanodegree program by davcs86.</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="http://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+        <link rel="import" href="portfolio-item-tag.html">
 
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
@@ -24,8 +26,38 @@
         <![endif]-->
 
         <div class="container">
-            <header></header>
-            <main></main>
+            <header>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <img alt="Site logo" style="margin-top: 20px" class="img-responsive" src="http://placehold.it/100x100">
+                    </div>
+                    <div class="col-xs-7 text-right">
+                        <h1>Jane Doette</h1>
+                        <h4>Front-end Ninja</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr/>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <section class="portfolio">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img alt="Featured image" class="img-responsive" src="http://placehold.it/800x400" style="width:100%">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Featured Work</h2>
+                        </div>
+                    </div>
+                    <div class="row" id="portfolio-container">
+                    </div>
+                </section>
+            </main>
         </div>
 
         <!-- build:js(.) scripts/vendor.js -->

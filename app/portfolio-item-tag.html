@@ -1,0 +1,79 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="portfolio-item">
+    <template>
+        <section class="portfolio-item col-sm-6 col-md-4">
+            <figure>
+                <picture>
+                    <source media="(min-width: 768px)" srcset="{{itemimgurlbase}}-360_1x.jpg 1x, {{itemimgurlbase}}-360_2x.jpg 2x" type="image/jpg">
+                    <source media="(min-width: 568px)" srcset="{{itemimgurlbase}}-722_1x.jpg 1x, {{itemimgurlbase}}-722_2x.jpg 2x" type="image/jpg">
+                    <source media="(min-width: 320px)" srcset="{{itemimgurlbase}}-522_1x.jpg 1x, {{itemimgurlbase}}-722_2x.jpg 2x" type="image/jpg">
+                    <img alt="{{itemname}} screenshot" class="img-responsive" data-toggle="modal" data-target="{{itemid}}" src="{{itemimgurlbase}}-320_1x.jpg">
+                </picture>
+                <figcaption>
+                    <h3>{{itemname}}</h3>
+                    <p><a href="{{itemurl}}" target="_blank">{{itemurl}}</a></p>
+                </figcaption>
+            </figure>
+            <!-- Modal -->
+            <div class="modal fade" id="{{itemid}}" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title">{{itemname}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <figure>
+                                        <picture>
+                                            <source media="(min-width: 768px)" srcset="{{itemimgurlbase}}-900_1x.jpg 1x, {{itemimgurlbase}}-900_2x.jpg 2x" type="image/jpg">
+                                            <source media="(min-width: 568px)" srcset="{{itemimgurlbase}}-722_1x.jpg 1x, {{itemimgurlbase}}-722_2x.jpg 2x" type="image/jpg">
+                                            <source media="(min-width: 320px)" srcset="{{itemimgurlbase}}-522_1x.jpg 1x, {{itemimgurlbase}}-522_2x.jpg 2x" type="image/jpg">
+                                            <img alt="{{itemname}} screenshot" class="img-responsive" src="{{itemimgurlbase}}-320_1x.jpg">
+                                        </picture>
+                                        <figcaption>
+                                            <h3>{{itemname}}</h3>
+                                            <h4>Description:</h4>
+                                            <p>{{itemdescription}}</p>
+                                            <p><a href="{{itemurl}}" target="_blank">{{itemurl}}</a></p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <script>
+        Polymer({
+            is: "portfolio-item",
+            properties: {
+                // declare the owner property
+                itemid: {
+                  type: String
+                },
+                itemimgurlbase: {
+                  type: String
+                },
+                itemname: {
+                  type: String
+                },
+                itemurl: {
+                  type: String
+                },
+                itemdescription: {
+                  type: String
+                }
+            }
+        });
+    </script>
+
+</dom-module>
