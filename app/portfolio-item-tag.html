@@ -2,13 +2,13 @@
 
 <dom-module id="portfolio-item">
     <template>
-        <section class="portfolio-item col-sm-6 col-md-4">
+        <article class="portfolio-item col-sm-6 col-md-4">
             <figure>
                 <picture>
                     <source media="(min-width: 768px)" srcset="{{itemimgurlbase}}-360_1x.jpg 1x, {{itemimgurlbase}}-360_2x.jpg 2x" type="image/jpg">
                     <source media="(min-width: 568px)" srcset="{{itemimgurlbase}}-722_1x.jpg 1x, {{itemimgurlbase}}-722_2x.jpg 2x" type="image/jpg">
                     <source media="(min-width: 320px)" srcset="{{itemimgurlbase}}-522_1x.jpg 1x, {{itemimgurlbase}}-722_2x.jpg 2x" type="image/jpg">
-                    <img alt="{{itemname}} screenshot" class="img-responsive" data-toggle="modal" data-target="{{itemid}}" src="{{itemimgurlbase}}-320_1x.jpg">
+                    <img class="img-responsive" data-toggle="modal" data-target="#{{itemid}} " src="{{itemimgurlbase}}-320_1x.jpg" alt="{{itemname}} screenshot">
                 </picture>
                 <figcaption>
                     <h3>{{itemname}}</h3>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </article>
     </template>
 
     <script>
