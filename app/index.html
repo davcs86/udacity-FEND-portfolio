@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Project #1 for Udacity's front-end web developer nanodegree program by davcs86.</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-        <link href="http://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
         <link rel="import" href="portfolio-item-tag.html">
 
         <!-- build:css(.) styles/vendor.css -->
@@ -29,16 +28,20 @@
             <header>
                 <div class="row">
                     <div class="col-xs-5">
-                        <img alt="Site logo" style="margin-top: 20px" class="img-responsive" src="http://placehold.it/100x100">
+                        <picture>
+                            <source srcset="images/logo.svg" type="image/svg+xml">
+                            <img alt="Site logo" class="img-responsive img-logo" src="images/fixed/logo.png">
+                        </picture>
+
                     </div>
-                    <div class="col-xs-7 text-right">
+                    <div class="col-xs-7 text-right text-uppercase header-title">
                         <h1>Jane Doette</h1>
                         <h4>Front-end Ninja</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <hr/>
+                        <hr class="header-line"/>
                     </div>
                 </div>
             </header>
@@ -46,12 +49,17 @@
                 <section class="portfolio">
                     <div class="row">
                         <div class="col-md-12">
-                            <img alt="Featured image" class="img-responsive" src="http://placehold.it/800x400" style="width:100%">
+                            <picture>
+                                <source media="(min-width: 320px)" srcset="images/banner/banner-522_1x.jpg 1x, images/banner/banner-522_2x.jpg 2x" type="image/jpg">
+                                <source media="(min-width: 568px)" srcset="images/banner/banner-752_1x.jpg 1x, images/banner/banner-752_2x.jpg 2x" type="image/jpg">
+                                <source media="(min-width: 1200px)" srcset="images/banner/banner-1160_1x.jpg 1x, images/banner/banner-1160_2x.jpg 2x" type="image/jpg">
+                                <img alt="Featured image" class="img-responsive" src="images/banner/banner-320_1x.jpg">
+                            </picture>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Featured Work</h2>
+                            <h2 class="portfolio-title">Featured Work</h2>
                         </div>
                     </div>
                     <div class="row" id="portfolio-container">
@@ -64,6 +72,7 @@
         <!-- bower:js -->
         <script src="/bower_components/jquery/dist/jquery.js"></script>
         <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+        <script src="/bower_components/web-animations-js/web-animations.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -85,6 +94,21 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
+
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: [ 'Lato:100,300,400:latin' ] }
+            };
+            (function() {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        </script>
 
     </body>
 </html>

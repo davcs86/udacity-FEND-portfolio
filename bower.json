@@ -5,7 +5,11 @@
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.3",
     "polymer": "Polymer/polymer#^1.2.0",
-    "jquery": "jQuery#~2.1.4"
+    "jquery": "jQuery#~2.1.4",
+    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#~1.0.9",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.2",
+    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#~1.0.1",
+    "paper-button": "PolymerElements/paper-button#~1.0.8"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -16,6 +20,5 @@
       ]
     }
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

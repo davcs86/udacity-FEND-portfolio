@@ -153,50 +153,55 @@ module.exports = function (grunt) {
                     engine: 'im',
                     sizes: [
                         {
-                            width: 320,
-                            suffix: '_1x',
-                            quality: 60
-                        },{
-                            width: 360,
-                            suffix: '_2x',
-                            quality: 80
-                        },
-                        {
-                            width: 360,
-                            suffix: '_1x',
-                            quality: 60
-                        },{
-                            width: 320,
-                            suffix: '_2x',
-                            quality: 80
-                        },
-                        {
-                            width: 522,
+                            width: 245,
                             suffix: '_1x',
                             quality: 50
+                        },{
+                            width: 245,
+                            suffix: '_2x',
+                            quality: 70
+                        },
+                        {
+                            width: 320,
+                            suffix: '_1x',
+                            quality: 50
+                        },{
+                            width: 320,
+                            suffix: '_2x',
+                            quality: 70
+                        },
+                        {
+                            width: 360,
+                            suffix: '_1x',
+                            quality: 60
+                        },
+                        {
+                            width: 360,
+                            suffix: '_2x',
+                            quality: 80
+                        },
+                        {
+                            width: 522,
+                            suffix: '_1x',
+                            quality: 60
                         },
                         {
                             width: 522,
                             suffix: '_2x',
-                            quality: 70
+                            quality: 80
                         },
                         {
-                            width: 722,
-                            suffix: '_1x',
-                            quality: 40
-                        },
-                        {
-                            width: 722,
+                            width: 752,
                             suffix: '_2x',
-                            quality: 60
+                            quality: 80
                         },
                         {
-                            width: 900,
+                            width: 1160,
                             suffix: '_1x',
                             quality: 70
                         },
                         {
-                            width: 900,
+                            width: 1160,
                             suffix: '_2x',
                             quality: 90
                         }
@@ -205,8 +210,73 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/images',
-                    src: '{,*/}*.{gif,jpeg,jpg,png}',
+                    src: ['{,*/}*.{gif,jpeg,jpg,png}','!fixed/*','!banner/*'],
                     dest: '<%= config.dist %>/images'
+                }]
+            },
+            banner: {
+                options: {
+                    engine: 'im',
+                    sizes: [
+                        {
+                            width: 320,
+                            suffix: '_1x',
+                            quality: 50
+                        },{
+                            width: 320,
+                            suffix: '_2x',
+                            quality: 70
+                        },
+                        {
+                            width: 522,
+                            suffix: '_1x',
+                            quality: 50
+                        },{
+                            width: 522,
+                            suffix: '_2x',
+                            quality: 70
+                        },
+                        {
+                            width: 752,
+                            suffix: '_1x',
+                            quality: 60
+                        },
+                        {
+                            width: 752,
+                            suffix: '_2x',
+                            quality: 80
+                        },
+                        {
+                            width: 1160,
+                            suffix: '_1x',
+                            quality: 70
+                        },
+                        {
+                            width: 1160,
+                            suffix: '_2x',
+                            quality: 90
+                        }
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/images/banner',
+                    src: ['{,*/}*.{gif,jpeg,jpg,png}'],
+                    dest: '<%= config.dist %>/images/banner'
+                }]
+            }
+        },
+
+        imagemin: {
+            dynamic: {
+                options: {
+                    optimizationLevel: 5
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/images/fixed',
+                    src: ['{,*/}*.{gif,jpeg,jpg,png}'],
+                    dest: '<%= config.dist %>/images/fixed'
                 }]
             }
         },
@@ -261,11 +331,19 @@ module.exports = function (grunt) {
                     ]
                 }, {
                     expand: true,
-                    dot: true,
+                    //dot: true,
                     cwd: '.',
                     src: [
                         'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
-                        'bower_components/polymer/polymer*.html'
+                        'bower_components/polymer/polymer*.html',
+                        'bower_components/paper-*/{-,*/}*.*',
+                        'bower_components/paper-*/*',
+                        'bower_components/neon-*/{-,*/}*.*',
+                        'bower_components/neon-*/*',
+                        'bower_components/iron-*/{-,*/}*.*',
+                        'bower_components/iron-*/*',
+                        'bower_components/font-*/*',
+                        'bower_components/web-animations-js/web-*.js'
                     ],
                     dest: '<%= config.dist %>'
                 }]
@@ -297,6 +375,8 @@ module.exports = function (grunt) {
             dist: [
                 'sass',
                 'responsive_images',
+                'responsive_images:banner',
+                'imagemin',
                 'svgmin'
             ]
         }

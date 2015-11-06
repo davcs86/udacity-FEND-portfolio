@@ -1,12 +1,60 @@
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
+// Custom breakpoints for bootstrap, in order to isplay 2 portfolio items in 568px screens (eg. iphone 5)
+$grid-gutter-width: 30px !default;
+// Small screen / tablet
+$screen-sm: 568px !default;
+$container-tablet: (520px + $grid-gutter-width) !default;
+
+// Medium screen / desktop
+$screen-md: 800px !default;
+$container-desktop: (752px + $grid-gutter-width) !default;
+
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+// Google font
+body *:not(.browsehappy) {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+
+.img-logo, .portfolio-title{
+    margin-top: 20px;
+}
+
+.header-line {
+    border-top: 3px solid #BCBBBB;
+}
+
+.header-title * {
+    font-weight: 100;
+}
+
+.portfolio .portfolio-title, .portfolio .portfolio-figure-link{
+    color: #BCBBBB;
+}
+
+// style for ridiculously small devices
+@media screen and (max-width: 300px){
+    h1 {
+        font-size: 28px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    h3 {
+        font-size: 19px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+}
+
 .browsehappy {
   margin: 0.2em 0;
-  background: #ccc;
+  background: #CCC;
   color: #000;
   padding: 0.2em 0;
 }
