@@ -1,0 +1,89 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+
+<dom-module id="portfolio-item">
+    <template>
+        <article class="col-sm-6 col-md-4">
+            <figure>
+                <picture>
+                    <source media="(min-width: 320px)" srcset="{{itemimgurlbase}}-522_1x.jpg 1x, {{itemimgurlbase}}-522_2x.jpg 2x" type="image/jpg">
+                    <source media="(min-width: 568px)" srcset="{{itemimgurlbase}}-245_1x.jpg 1x, {{itemimgurlbase}}-245_2x.jpg 2x" type="image/jpg">
+                    <source media="(min-width: 1200px)" srcset="{{itemimgurlbase}}-360_1x.jpg 1x, {{itemimgurlbase}}-360_2x.jpg 2x" type="image/jpg">
+                    <img class="img-responsive" on-click="clickOnImage" src="{{itemimgurlbase}}-320_1x.jpg" alt="{{itemname}} screenshot">
+                </picture>
+                <figcaption class="text-center">
+                    <h3 class="text-uppercase">{{itemname}}</h3>
+                    <p><a class="text-small portfolio-figure-link" href="{{itemurl}}" target="_blank">{{itemurl}}</a></p>
+                </figcaption>
+            </figure>
+            <!-- Modal -->
+            <paper-dialog id="{{itemid}}modal" class="container" modal>
+                <h2>{{itemname}}</h2>
+                <paper-dialog-scrollable>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <figure>
+                                <picture>
+                                    <source media="(min-width: 800px)" srcset="{{itemimgurlbase}}-1160_1x.jpg 1x, {{itemimgurlbase}}-1160_2x.jpg 2x" type="image/jpg">
+                                    <source media="(min-width: 568px)" srcset="{{itemimgurlbase}}-752_1x.jpg 1x, {{itemimgurlbase}}-752_2x.jpg 2x" type="image/jpg">
+                                    <source media="(min-width: 320px)" srcset="{{itemimgurlbase}}-522_1x.jpg 1x, {{itemimgurlbase}}-522_2x.jpg 2x" type="image/jpg">
+                                    <img alt="{{itemname}} screenshot" class="img-responsive" src="{{itemimgurlbase}}-320_1x.jpg">
+                                </picture>
+                                <figcaption>
+                                    <h4>Description:</h4>
+                                    <p>{{itemdescription}}</p>
+                                    <p><a href="{{itemurl}}" target="_blank">{{itemurl}}</a></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </paper-dialog-scrollable>
+                <div class="buttons">
+                    <paper-button raised on-click="openMoreInfo">More info</paper-button>
+                    <paper-button raised dialog-dismiss>Close</paper-button>
+                </div>
+            </paper-dialog>
+            <!-- /Modal -->
+        </article>
+    </template>
+
+    <script>
+        Polymer({
+            applyAuthorStyles: true,
+            is: "portfolio-item",
+            clickOnImage: function(e) {
+                var id = this.itemid+"modal";
+                var dialog = document.getElementById(id);
+                if (dialog) {
+                    // open modal
+                    dialog.open();
+                }
+            },
+            openMoreInfo: function(e){
+                var url = this.itemurl;
+                window.open(url,'_blank');
+            },
+            properties: {
+                // declare the properties
+                itemid: {
+                  type: String
+                },
+                itemimgurlbase: {
+                  type: String
+                },
+                itemname: {
+                  type: String
+                },
+                itemurl: {
+                  type: String
+                },
+                itemdescription: {
+                  type: String
+                }
+            }
+        });
+    </script>
+
+</dom-module>
